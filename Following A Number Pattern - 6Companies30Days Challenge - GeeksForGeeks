@@ -1,0 +1,32 @@
+GeeksForGeeks - Following A Number Pattern
+
+class Solution:
+    def printMinNumberForPattern(ob,S):
+        # code here
+        main = 1
+        n = len(S)
+        i = 0
+        final = ['1']
+        
+        while i < n:
+            j = i
+            if S[i] == 'D':
+                while j < n and S[j] == 'D':
+                    j += 1
+                d_count = j - i
+                main += d_count
+                final[i] = str(main)
+                count = main
+                while i != j:
+                    count -= 1
+                    final.append(str(count)) 
+                    i += 1
+            else:
+                main += 1
+                final.append(str(main))
+                i += 1
+        answer = ""
+        for k in final:
+            answer += k
+            
+        return answer
